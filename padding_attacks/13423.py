@@ -14,7 +14,9 @@ rng = SystemRandom()
 class Challenge:
     def __init__(self):
         self.before_input = "That last challenge was pretty easy, but I'm positive that this one will be harder!\n"
-        self.message = urandom(16).hex()
+        # self.message = urandom(16).hex()
+        self.message = "cafebabe1234567890cafebabecafeca"
+        # print(message)
         self.key = urandom(16)
         self.query_count = 0
         self.max_queries = 12_000
@@ -23,6 +25,7 @@ class Challenge:
         self.query_count += 1
         if self.query_count >= self.max_queries:
             self.exit = True
+            print("EXIT")
 
     def get_ct(self):
         iv = urandom(16)
